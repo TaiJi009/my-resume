@@ -1,0 +1,29 @@
+---
+import type { ResumeData } from '../types';
+
+const { profile } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const avatarSrc = profile.avatar.startsWith('http') ? profile.avatar : `${base}${profile.avatar.replace(/^\//, '')}`;
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="profile">
+        <div class="profile-img">
+          <img src={avatarSrc} alt={profile.name} />
+        </div>
+        <h1>{profile.name}</h1>
+        <p class="title">{profile.title}</p>
+      </div>
+      <div class="contact">
+        {profile.contact.map((item) => (
+          <div class="contact-item">
+            <i class={item.icon}></i>
+            <span>{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</header>

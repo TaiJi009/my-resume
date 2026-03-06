@@ -1,0 +1,147 @@
+---
+import ResumeLayout from '../layouts/ResumeLayout.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import resumeData from '../content/resume.json';
+import type { ResumeData } from '../types';
+
+const data = resumeData as ResumeData;
+---
+
+<ResumeLayout title="张滨 - 个人简历" description="AIGC设计应用深度研究者 | AI工业级应用工程师 - 个人简历">
+  <Header profile={data.profile} />
+  <Nav nav={data.nav} />
+
+  <main class="main">
+    <section id="home" class="section">
+      <div class="container">
+        <h2 class="section-title">个人简介</h2>
+        <div class="personal-info">
+          <div class="info-item">
+            <h3>个人特点</h3>
+            <ul>
+              {data.personal.characteristics.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="info-item">
+            <h3>个人特质</h3>
+            <ul>
+              {data.personal.traits.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">教育背景</h2>
+        {data.education.map((edu) => (
+          <div class="education-item">
+            <h3>{edu.school}</h3>
+            <p class="period">{edu.period}</p>
+            <p class="degree">{edu.degree}</p>
+            <ul>
+              {edu.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">技能工具</h2>
+        <div class="skills-grid">
+          {data.skills.map((skill) => (
+            <div class="skill-category">
+              <h3>{skill.category}</h3>
+              <ul>
+                {skill.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="academic" class="section">
+      <div class="container">
+        <h2 class="section-title">学术成果</h2>
+        <div class="academic-item">
+          <h3>{data.academic.title}</h3>
+          <ul>
+            {data.academic.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="section">
+      <div class="container">
+        <h2 class="section-title">证书荣誉</h2>
+        <div class="certificates-grid">
+          {data.certificates.map((cert) => (
+            <div class="certificate-item">
+              <h3>{cert.title}</h3>
+              <ul>
+                {cert.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="campus" class="section">
+      <div class="container">
+        <h2 class="section-title">校内实践</h2>
+        {data.campus.map((item) => (
+          <div class="campus-item">
+            <h3>{item.title}</h3>
+            <p class="period">{item.period}</p>
+            <p class="position">{item.position}</p>
+            <ul>
+              {item.items.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">实践经历</h2>
+        {data.experience.map((item) => (
+          <div class="experience-item">
+            <h3>{item.title}</h3>
+            <p class="period">{item.period}</p>
+            <p class="position">{item.position}</p>
+            <ul>
+              {item.items.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer footer={data.footer} />
+</ResumeLayout>

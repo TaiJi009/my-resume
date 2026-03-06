@@ -1,0 +1,17 @@
+---
+import type { ResumeData } from '../types';
+const { footer } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="container">
+    <p>{footer.copyright}</p>
+    <div class="social-links">
+      {footer.social.map((item) => (
+        <a href={item.url} class="social-link" target="_blank" rel="noopener noreferrer" aria-label={item.label}>
+          <i class={item.icon}></i>
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

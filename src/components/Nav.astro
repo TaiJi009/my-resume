@@ -1,0 +1,16 @@
+---
+import type { ResumeData } from '../types';
+const { nav } = Astro.props;
+---
+
+<nav class="nav">
+  <div class="container">
+    <ul class="nav-list">
+      {nav.map((item) => (
+        <li>
+          <a href={`#${item.id}`}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
