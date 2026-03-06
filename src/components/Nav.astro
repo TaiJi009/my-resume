@@ -11,6 +11,11 @@ const { nav } = Astro.props;
           <a href={`#${item.id}`}>{item.label}</a>
         </li>
       ))}
+      <li>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
+          <i class="fas fa-moon"></i>
+        </button>
+      </li>
     </ul>
   </div>
 </nav>

@@ -158,3 +158,51 @@ experienceItems.forEach(item => {
         item.style.boxShadow = 'none';
     });
 });
+
+// 主题切换功能
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+// 检查本地存储或系统偏好
+const getPreferredTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+// 应用主题
+const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeIcon) {
+        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+};
+
+// 初始化主题
+const initTheme = () => {
+    const preferredTheme = getPreferredTheme();
+    applyTheme(preferredTheme);
+};
+
+// 切换主题事件
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// 监听系统主题变化
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
+// 页面加载时初始化
+initTheme();
