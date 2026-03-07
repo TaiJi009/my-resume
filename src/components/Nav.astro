@@ -8,12 +8,12 @@ const { nav } = Astro.props;
     <ul class="nav-list">
       {nav.map((item) => (
         <li>
-          <a href={`#${item.id}`}>{item.label}</a>
+          <a href={`#${item.id}`} data-section={item.id}>{item.label}</a>
         </li>
       ))}
       <li>
         <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
-          <i class="fas fa-moon"></i>
+          <i class="fas fa-terminal"></i>
         </button>
       </li>
     </ul>

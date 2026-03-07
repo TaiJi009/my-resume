@@ -7,6 +7,7 @@ const avatarSrc = profile.avatar.startsWith('http') ? profile.avatar : `${base}$
 ---
 
 <header class="header">
+  <canvas id="particle-canvas"></canvas>
   <div class="container">
     <div class="header-content">
       <div class="profile">
@@ -14,7 +15,10 @@ const avatarSrc = profile.avatar.startsWith('http') ? profile.avatar : `${base}$
           <img src={avatarSrc} alt={profile.name} />
         </div>
         <h1>{profile.name}</h1>
-        <p class="title">{profile.title}</p>
+        <p class="title">
+          <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+        </p>
+        <span id="typewriter-source" style="display:none">{profile.title}</span>
         {profile.info && profile.info.length > 0 && (
           <div class="profile-info">
             {profile.info.map((item) => (
