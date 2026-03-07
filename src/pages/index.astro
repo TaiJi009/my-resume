@@ -48,7 +48,7 @@ const data = resumeData as ResumeData;
             <p class="degree">{edu.degree}</p>
             <ul>
               {edu.items.map((item) => (
-                <li>{item}</li>
+                <li set:html={item} />
               ))}
             </ul>
           </div>
@@ -81,7 +81,7 @@ const data = resumeData as ResumeData;
           <h3>{data.academic.title}</h3>
           <ul>
             {data.academic.items.map((item) => (
-              <li>{item}</li>
+              <li set:html={item} />
             ))}
           </ul>
         </div>
@@ -97,7 +97,7 @@ const data = resumeData as ResumeData;
               <h3>{cert.title}</h3>
               <ul>
                 {cert.items.map((item) => (
-                  <li>{item}</li>
+                  <li set:html={item} />
                 ))}
               </ul>
             </div>

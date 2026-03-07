@@ -797,6 +797,18 @@ html {
     transform: translateY(-3px);
 }
 
+/* 正文内链接样式 */
+.section a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.section a:hover {
+    border-bottom-color: var(--color-primary);
+}
+
 /* ============================================================
    下载按钮
    ============================================================ */
