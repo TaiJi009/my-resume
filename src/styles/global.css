@@ -100,7 +100,24 @@ body {
 .profile .title {
     font-size: 1.1rem;
     opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.profile-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
     margin-bottom: 20px;
+    opacity: 0.85;
+    font-size: 0.9rem;
+}
+
+.profile-info-item {
+    white-space: nowrap;
+}
+
+.info-label {
+    opacity: 0.75;
 }
 
 .contact {

@@ -3,6 +3,7 @@ export interface ResumeData {
     name: string;
     title: string;
     avatar: string;
+    info: Array<{ label: string; value: string }>;
     contact: Array<{ icon: string; label: string }>;
   };
   nav: Array<{ id: string; label: string }>;

@@ -15,6 +15,15 @@ const avatarSrc = profile.avatar.startsWith('http') ? profile.avatar : `${base}$
         </div>
         <h1>{profile.name}</h1>
         <p class="title">{profile.title}</p>
+        {profile.info && profile.info.length > 0 && (
+          <div class="profile-info">
+            {profile.info.map((item) => (
+              <span class="profile-info-item">
+                <span class="info-label">{item.label}：</span>{item.value}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
       <div class="contact">
         {profile.contact.map((item) => (
